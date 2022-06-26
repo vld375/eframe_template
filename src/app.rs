@@ -55,15 +55,18 @@ impl eframe::App for TemplateApp {
         egui::TopBottomPanel::top("top_panel").show(ctx, |ui| {
             // The top panel is often a good place for a menu bar:
             egui::menu::bar(ui, |ui| {
-                ui.menu_button("File", |ui| {
-                    if ui.button("Quit").clicked() {
+                ui.menu_button("Меню", |ui| {
+                    if ui.button("Выход").clicked() {
+                        frame.quit();
+                    }
+                    if ui.button("Выход2").clicked() {
                         frame.quit();
                     }
                 });
             });
         });
 
-        egui::SidePanel::left("side_panel").show(ctx, |ui| {
+        egui::SidePanel::left("Левая панель").show(ctx, |ui| {
             ui.heading("Side Panel");
 
             ui.horizontal(|ui| {
